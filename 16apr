@@ -1,0 +1,63 @@
+'''1. Calculate income tax for the given income by adhering to the below rules
+a. first 10k => 0%
+b. second 10 => 10%
+c. Remaining => 20%
+d. For example, suppose the taxable income is 45000 the income tax payable is
+$6000'''
+
+def calculate_income_tax(income):
+    if income <= 10000:
+        tax = 0
+    elif income <= 20000:
+        tax = 0.10 * (income - 10000)
+    else:
+        tax = 0.10 * 10000 + 0.20 * (income - 20000)
+    return tax
+
+# Example usage:
+
+income = 65000
+tax = calculate_income_tax(income)
+print("Income tax for $", income, " is $", tax)
+
+#---------------------------------------------------------------------------------
+'''2. Write a program that take a user input of three angles and will find out whether it can
+form a triangle or not.'''
+
+def is_triangle(angle1, angle2, angle3):
+    return angle1 + angle2 + angle3 == 180
+
+angle1 = int(input("Enter the first angle: "))
+angle2 = int(input("Enter the second angle: "))
+angle3 = int(input("Enter the third angle: "))
+
+if is_triangle(angle1, angle2, angle3):
+    print("Yes, these angles can form a triangle.")
+
+else:
+    print("No, these angles cannot form a triangle.")
+
+#-----------------------------------------------------------------------------------------------------
+def determine_weather(temperature, humidity):
+    if temperature > 30 and humidity > 90:
+        return " hot and humid."
+    elif temperature > 30 and humidity <90:
+        return " hot."
+    elif temperature <30 and humidity >=90:
+        return "cool and humid."
+    elif temperature <30 and humidity <90:
+        return "cool "
+    else:
+        return "The weather is pleasant."
+
+# Taking input from the user
+temperature = float(input("Enter the temperature (in Celsius): "))
+humidity = float(input("Enter the humidity (in percentage): "))
+
+# Determining the weather based on input values
+weather = determine_weather(temperature, humidity)
+
+# Displaying the result
+print("Weather:", weather)
+
+#---------------------------------------------------------------------------------------------
